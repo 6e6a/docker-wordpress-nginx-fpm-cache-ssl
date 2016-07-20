@@ -184,8 +184,10 @@ RUN cd /usr/share/nginx/ && \
 
 # Target **webroot** - `/usr/share/nginx/www`
 RUN rm -rf /usr/share/nginx/www && \
-	mv /usr/share/nginx/wordpress /usr/share/nginx/www && \
-	chown -R www-data:www-data /usr/share/nginx/www
+	mkdir /usr/share/nginx/www && \
+	rsync -av /usr/share/nginx/wordpress/ /usr/share/nginx/www/ && \
+	chown -R www-data:www-data /usr/share/nginx/www && \
+	rm -rf /usr/share/nginx/wordpress
 
 
 
