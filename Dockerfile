@@ -115,9 +115,6 @@ RUN add-apt-repository ppa:rtcamp/nginx && \
 # Nginx Config
 # ----------------------------------------------------------
 
-# Create uer for Nginx running
-RUN adduser --system --no-create-home --shell /bin/false --group --disabled-login www-front
-
 # Copy config files to `/etc/nginx/` folder
 COPY  config/nginx.conf /etc/nginx/nginx.conf
 
@@ -230,4 +227,3 @@ COPY bash/wp-install-plugins.sh /addon/wp-install-plugins.sh
 
 # Mount the volumns
 VOLUME ["/usr/share/nginx/www", "/var/log"]
-
