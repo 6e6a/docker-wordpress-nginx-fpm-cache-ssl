@@ -94,8 +94,8 @@ s/localhost/$DB_HOSTNAME/
 /'NONCE_SALT'/s/put your unique phrase here/`pwgen -c -n -1 65`/" \
 /usr/share/nginx/www/wp-config-sample.php > /usr/share/nginx/www/wp-config.php
 
-# Change `user:group` for `wp-config.php`.
-chown www-data:www-data /usr/share/nginx/www/wp-config.php
+# Change `user:group` for `www`.
+chown -R www-data:www-data /usr/share/nginx/www
 
 
 
