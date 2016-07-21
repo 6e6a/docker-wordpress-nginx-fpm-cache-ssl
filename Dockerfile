@@ -183,9 +183,9 @@ RUN cd /usr/share/nginx/ && \
     rm wp-latest.tar.gz
 
 # Target **webroot** - `/usr/share/nginx/www`
-RUN rsync -a /usr/share/nginx/wordpress/ /usr/share/nginx/www/ && \
-	chown -R www-data:www-data /usr/share/nginx/www && \
-	rm -rf /usr/share/nginx/wordpress
+RUN rm -rf /usr/share/nginx/www && \
+	mv /usr/share/nginx/wordpress /usr/share/nginx/www && \
+	chown -R www-data:www-data /usr/share/nginx/www
 
 
 
@@ -216,14 +216,3 @@ COPY bash/ssl.sh /addon/ssl.sh
 
 # Install WP plugins
 COPY bash/wp-install-plugins.sh /addon/wp-install-plugins.sh
-
-
-# ===============================================================================
-# Volume Mounting
-#
-# - Wprdpress webroot
-# - Log
-#
-
-# Mount the volumns
-VOLUME ["/usr/share/nginx/www", "/var/log"]
