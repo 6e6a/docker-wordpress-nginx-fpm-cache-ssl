@@ -189,6 +189,7 @@ RUN rsync -a /usr/share/nginx/wordpress/ /usr/share/nginx/www/ && \
 
 
 
+
 # ===============================================================================
 # System Initialization
 #
@@ -216,3 +217,14 @@ COPY bash/ssl.sh /addon/ssl.sh
 
 # Install WP plugins
 COPY bash/wp-install-plugins.sh /addon/wp-install-plugins.sh
+
+
+# ===============================================================================
+# Volume Mounting
+#
+# - Wordpress content
+# - Log
+#
+
+# Mount the volumes
+VOLUME ["/usr/share/nginx/www/wp-content", "/var/log"]
