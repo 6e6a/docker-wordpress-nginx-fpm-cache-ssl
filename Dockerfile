@@ -185,7 +185,7 @@ RUN cd /usr/share/nginx/ && \
 # Target **webroot** - `/usr/share/nginx/www`
 RUN rsync -a /usr/share/nginx/wordpress/ /usr/share/nginx/www/ && \
 	cd /usr/share/nginx/www && \
-	chown -R www-data:www-data $(ls | awk '{if($1 != "wp-content"){ print $1 }}')
+	chown -R www-data:www-data /usr/share/nginx/www
 
 
 
