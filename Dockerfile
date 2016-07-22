@@ -122,7 +122,7 @@ COPY  config/nginx-site-http.conf /etc/nginx/nginx-site-http.conf
 COPY  config/nginx-site-https.conf /etc/nginx/nginx-site-https.conf
 # Default **site** config - HTTP
 # Later if need to enforce SSL, use `nginx-site-http.conf` instead.
-COPY  config/nginx-site-http.conf /etc/nginx/sites-available/default
+COPY  config/nginx-site-https.conf /etc/nginx/sites-available/default
 
 COPY  config/nginx-ssl.conf /etc/nginx/ssl-template.conf
 COPY  config/nginx-restrictions.conf /etc/nginx/restrictions.conf
